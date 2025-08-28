@@ -19,12 +19,34 @@ header {
   box-shadow: 0 2px 8px rgba(183, 215, 201, 0.15);
 }
 
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(183,215,201,0.10);
+}
+
+.studio-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2px;
+}
+
 header .insta-handle {
   display: block;
   font-size: 1em;
   font-weight: 400;
   color: #7A7A7A;
-  margin-top: 8px;
+  margin-top: 2px;
   letter-spacing: 0.5px;
 }
 
