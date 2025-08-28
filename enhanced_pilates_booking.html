@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pilates Class Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #333;
+        }
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .filter-controls select {
+            padding: 8px;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #f0f0f0;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .details {
+            display: none;
+            font-size: 14px;
+            color: #555;
+        }
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            th {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                text-align: left;
+            }
+            td:before {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+            }
+            td:nth-of-type(1):before { content: "Day"; }
+            td:nth-of-type(2):before { content: "Time"; }
+            td:nth-of-type(3):before { content: "Instructor"; }
+            td:nth-of-type(4):before { content: "Details"; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pilates Class Booking</h1>
+        <p>Choose your preferred class slot for the week.</p>
+    </header>
+
+    <div class="filter-controls">
+        <label for="dayFilter">Filter by Day:</label>
+        <select id="dayFilter" onchange="filterSchedule()">
+            <option value="All">All</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+        </select>
+
+        <label for="instructorFilter">Filter by Instructor:</label>
+        <select id="instructorFilter" onchange="filterSchedule()">
+            <option value="All">All</option>
+            <option value="Jane Doe">Jane Doe</option>
+            <option value="John Smith">John Smith</option>
+            <option value="Emily Clark">Emily Clark</option>
+            <option value="Michael Lee">Michael Lee</option>
+            <option value="Sarah Kim">Sarah Kim</option>
+        </select>
+    </div>
+
+    <table id="scheduleTable">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Instructor</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-day="Monday" data-instructor="Jane Doe">
+                <td>Monday</td>
+                <td>9:00 AM - 10:00 AM</td>
+                <td>Jane Doe</td>
+                <td><span class="details">Beginner level. Bring your own mat.</span></td>
+            </tr>
+            <tr data-day="Tuesday" data-instructor="John Smith">
+                <td>Tuesday</td>
+                <td>6:00 PM - 7:00 PM</td>
+                <td>John Smith</td>
+                <td><span class="details">Intermediate level. Equipment provided.</span></td>
+            </tr>
+            <tr data-day="Wednesday" data-instructor="Emily Clark">
+                <td>Wednesday</td>
+                <td>7:00 AM - 8:00 AM</td>
+                <td>Emily Clark</td>
+                <td><span class="details">Advanced level. Focus on core strength.</span></td>
+            </tr>
+            <tr data-day="Thursday" data-instructor="Michael Lee">
+                <td>Thursday</td>
+                <td>5:00 PM - 6:00 PM</td>
+                <td>Michael Lee</td>
+                <td><span class="details">Mixed level. Relaxation techniques included.</span></td>
+            </tr>
+            <tr data-day="Friday" data-instructor="Sarah Kim">
+                <td>Friday</td>
+                <td>8:00 AM - 9:00 AM</td>
+                <td>Sarah Kim</td>
+                <td><span class="details">Beginner level. Great for newcomers.</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function filterSchedule() {
+            const dayFilter = document.getElementById('dayFilter').value;
+            const instructorFilter = document.getElementById('instructorFilter').value;
+            const rows = document.querySelectorAll('#scheduleTable tbody tr');
+
+            rows.forEach(row => {
+                const day = row.getAttribute('data-day');
+                const instructor = row.getAttribute('data-instructor');
+                const matchDay = (dayFilter === 'All' || day === dayFilter);
+                const matchInstructor = (instructorFilter === 'All' || instructor === instructorFilter);
+                row.style.display = (matchDay && matchInstructor) ? '' : 'none';
+            });
+        }
+
+        // Show details on hover
+        const rows = document.querySelectorAll('#scheduleTable tbody tr');
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.querySelector('.details').style.display = 'block';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.querySelector('.details').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
