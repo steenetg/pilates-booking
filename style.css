@@ -1,54 +1,92 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F9F6F2;
+  color: #333;
 }
 
 header {
-    background-color: #6ab04c;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-color: #B7D7C9;
+  color: #333;
+  padding: 32px 20px 20px 20px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 2px 8px rgba(183, 215, 201, 0.15);
+}
+
+header .insta-handle {
+  display: block;
+  font-size: 1em;
+  font-weight: 400;
+  color: #7A7A7A;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
 }
 
 main {
-    padding: 20px;
+  padding: 32px 20px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  margin: 32px auto;
+  max-width: 700px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 
 .schedule table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  background-color: #FFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(183, 215, 201, 0.08);
 }
 
 .schedule th, .schedule td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
+  border: 1px solid #EDEDED;
+  padding: 16px 10px;
+  text-align: center;
+  font-size: 1em;
 }
 
 .schedule th {
-    background-color: #ddd;
+  background-color: #E8D9D1;
+  color: #333;
+  font-weight: 600;
 }
 
 .book-btn {
-    background-color: #6ab04c;
-    color: white;
-    padding: 8px 12px;
-    text-decoration: none;
-    border-radius: 4px;
+  background-color: #B7D7C9;
+  color: #333;
+  padding: 10px 24px;
+  text-decoration: none;
+  border-radius: 24px;
+  font-weight: bold;
+  border: none;
+  font-size: 1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 1px 4px rgba(183, 215, 201, 0.15);
+  cursor: pointer;
 }
 
 .book-btn:hover {
-    background-color: #4e944f;
+  background-color: #A0C4B8;
+  color: #fff;
 }
 
 footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #eee;
-    margin-top: 20px;
+  text-align: center;
+  padding: 18px;
+  background-color: #F9F6F2;
+  color: #7A7A7A;
+  font-size: 1em;
+  margin-top: 40px;
+  border-top: 1px solid #EDEDED;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
